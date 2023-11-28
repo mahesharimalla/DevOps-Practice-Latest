@@ -1,0 +1,37 @@
+Configuration files stored for Tomcat & SonarQube:
+Tomcat----> conf/server.xml
+SonarQube --------> conf/sonar.properties
+
+If we did any changes in configuration file of Tomcat server & SonarQube server we need to restart the server.
+
+pom.xml--------> Many Dependencies
+package.json -------> Many Node Modules
+
+
+Sonar Cloud : SonarCloud is a cloud-based code analysis service designed to detect coding issues in 26 different programming languages.
+
+SAAS 
+
+
+Nexus or Sonatype nexus
+=======================
+Is an OS,Java Based, Artifactory repo manager.
+It can be used to store the build artifacts and retrive the build artifacts when ever we required.
+
+Nexus Repository OSS(Open Source Software) is an open source repository that supports many artifact formats, including Docker, Java™, and npm. With the Nexus tool integration,
+pipelines in your toolchain can publish and retrieve versioned apps and their dependencies by using central repositories that are accessible from other environments.
+
+
+What is Sonatype nexus for?
+Nexus by Sonatype is a repository manager that organizes, stores and distributes artifacts needed for development.
+
+
+What is the difference between GitHub & Nexus?
+GitHub is an Source Code Management.
+Nexus is an Artifactory Repo Manager it can be used to store build artifacts.
+
+2 Editions
+Nexus OSS ----> Open Source Software
+Nexus Pro ----> Enterprise Edition
+
+
