@@ -1,3 +1,5 @@
+SonarQube:
+=========
 Configuration files stored for Tomcat & SonarQube:
 Tomcat----> conf/server.xml
 SonarQube --------> conf/sonar.properties
@@ -34,4 +36,13 @@ Nexus is an Artifactory Repo Manager it can be used to store build artifacts.
 Nexus OSS ----> Open Source Software
 Nexus Pro ----> Enterprise Edition
 
+Nexus installation requirements:
 
+Java 8 or java 1.8
+
+Hardware requirements:  
+1GB RAM for Nexus
+1GB RAM for OS (Operating System)
+
+https://mithuntechnologies-devops.blogspot.com/search/label/Java
+https://mithuntechnologies-devops.blogspot.com/search/label/Nexus%20Server
