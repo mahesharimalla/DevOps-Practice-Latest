@@ -1,0 +1,38 @@
+How to create the repos?
+Integrate Repo with Maven Java Projects?
+Release Repos
+Snapshot Repos
+
+
+
+Default port number for Nexus is 8081.
+https://13.221.2.210:8081/----------------> Accessing the Nexus Server.
+
+For changing the port number & application context path for nexus in file opt/nexus/etc/nexus-default.properties
+https://13.221.2.210:9901/solutions
+
+
+
+Nexus Repo Details:
+===================
+We should configure our Nexus Repo details in pom.xml file. Inside of DistributionManagement tag.
+
+Pom.xml:
+
+<distributionManagement>
+https://13.221.2.210:8081/solutions/repos/facebook-releases/
+https://13.221.2.210:8081/solutions/repos/facebook-snapshot/
+<distributionManagement>
+
+For adding the Nexus Credentials we should add the nexus credentails in settings.xml file
+<servers>
+<server>
+<id>nexus</id>
+ <username>admin</username>
+ <password>admin123</password>
+</server>
+</servers>
+
+
+
+
