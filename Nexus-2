@@ -79,4 +79,23 @@ mvn clean deploy
 
 mvn deploy   ----------which we can used to upload the artifact into remote repository
 
+It will deployed into the Sonatype Nexus Repository ---> facebook-snapshot inside of 0.0.1-20230315.011855-1
+
+
+
+- On going developement packages will contain on the Snapshots.
+- All the Production version packages are available on the Releases.
+
+403---------> Check the user Access
+401---------> Check the credentails
+
+When you change version in pom.xml.
+<version>1.0.0</version>    
+
+mvn clean deploy --------------> then it will deploy into the Releases nexus repository
+If we do again mvn clean deploy with the same version id it will not going to override it will throws an error.
+
+Apply the redeploy in the Repository administration instead of No redeploy.
+
+
 
