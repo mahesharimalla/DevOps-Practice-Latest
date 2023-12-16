@@ -37,23 +37,46 @@ After creating the repository it will give a URL's.
 Nexus Repo Details:
 ===================
 We should configure our Nexus Repo details in pom.xml file. Inside of DistributionManagement tag.
+maven-web-application project/pom.xml:
 
 Pom.xml:
 
 <distributionManagement>
-https://13.221.2.210:8081/solutions/repos/facebook-releases/
-https://13.221.2.210:8081/solutions/repos/facebook-snapshot/
+<repository>
+<id>nexus</id>
+<name>Facebook-Releases Nexus Rpository</name>
+<url>https://13.221.2.210:9980/mithuntechnologies/repository/facebook-releases/</url>
+</repository>
+
+<snaphotRepository>
+<id>nexus</id>
+<name>Facebook-Snapshots Nexus Rpository</name>
+<url>https://13.221.2.210:9980/mithuntechnologies/repository/facebook-snapshots/</url>
+</snaphotRepository>
 <distributionManagement>
+
+cd /opt/apache-maven-3.8.4/conf/settings.xml file
 
 For adding the Nexus Credentials we should add the nexus credentails in settings.xml file
 <servers>
 <server>
-<id>nexus</id>
+<id>nexus</id>                    //id would be the same in POM.XML & in settings.xml file
  <username>admin</username>
  <password>admin123</password>
 </server>
 </servers>
 
 
+cd -
+cd /root/maven-web-application       [here we can find all the directories like docker-compose.yaml Jenkinsfile pom.xml src target Dockerfile .....etc
+Below Goals to be execute:
+validate
+compile 
+test
+package
+install
+mvn clean deploy
+
+mvn deploy   ----------which we can used to upload the artifact into remote repository
 
 
