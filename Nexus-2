@@ -9,7 +9,28 @@ Default port number for Nexus is 8081.
 https://13.221.2.210:8081/----------------> Accessing the Nexus Server.
 
 For changing the port number & application context path for nexus in file opt/nexus/etc/nexus-default.properties
-https://13.221.2.210:9901/solutions
+#Jetty section
+application-port=9980
+nexus-context-path=/mithuntechnologies
+:wq
+If you made any changes then after doing the changes we need to restart the nexus service.
+Command to restart the service: service nexus restart
+
+
+Go to browser & browse the below mentioned link: 
+https://13.221.2.210:9980/mithuntechnologies
+
+Create a repositories in the Sonatype Nexus Repository Manager by selecting the default 
+Create Repository--> Maven2(hosted)---> facebook-snapshot by selecting the maven2 version policy  with Snapshot
+select default settings & create a repository.
+
+
+Create Repository--> Maven2(hosted)---> facebook-releases by selecting the maven2 version policy  with Rlease 
+select default settings & create a repository.
+
+
+After creating the repository it will give a URL's.
+
 
 
 
