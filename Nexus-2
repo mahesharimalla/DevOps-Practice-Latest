@@ -62,7 +62,7 @@ For adding the Nexus Credentials we should add the nexus credentails in settings
 <server>
 <id>nexus</id>                    //id would be the same in POM.XML & in settings.xml file
  <username>admin</username>
- <password>admin123</password>
+ <password>admin123</password>         //Default username & password for Nexus is admin & admin123
 </server>
 </servers>
 
