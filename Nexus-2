@@ -105,4 +105,14 @@ If we do again mvn clean deploy with the same version id it will not going to ov
 Apply the redeploy in the Repository administration instead of No redeploy.
 
 
+Suppose if we have 10 jars where we need to store & What we need to do?
+=======================================================================
+We can download our jar files from our remote repository (AWS Linux Instance) to our local system(Windows) we can use FTP softwares like filezilla or anyother softwares for downloading jars.
+After downloading successfully from remote system we can upload our jar files into Nexus Hosted Repository Browse--> MSS_Hosted_Repo---> Upload Component.
+
+As a DevOps engineer we are the responsible for uploading artifacts in Remote Repositorys.
+
+
+
+
 
