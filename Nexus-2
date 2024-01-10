@@ -4,6 +4,9 @@ Release Repos
 Snapshot Repos
 
 
+What is the default port of Nexus repository?
+The default behavior of Nexus is to attempt to bind to port 8081 or 0.0. 0.0 (or every available interface). 
+If you want to change the port or the host, you will need to modify the file in NEXUS_HOME/conf/nexus.
 
 Default port number for Nexus is 8081.
 https://13.221.2.210:8081/----------------> Accessing the Nexus Server.
