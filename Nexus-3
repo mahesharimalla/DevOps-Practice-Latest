@@ -1,0 +1,23 @@
+
+
+
+What are the different types of repositories in nexus3?
+---> Nexus Repository Manager provides for three different kinds of repositories: Proxy repositories, Hosted repositories and Virtual repositories.
+
+
+
+How to disable maven blocking external HTTP repositories?
+Maven blocks external HTTP repositories by default since version 3.8.1 (see https://maven.apache.org/docs/3.8.1/release-notes.html)
+
+I found a solution to do this by inspecting the commit in the Maven git repository that is responsible for the default HTTP blocking: https://github.com/apache/maven/commit/907d53ad3264718f66ff15e1363d76b07dd0c05f
+
+My solution is as follows:
+
+In the Maven settings (located in ${maven.home}/conf/settings.xml or ${user.home}/.m2/settings.xml), the following entry must be removed:
+
+<mirror>
+  <id>maven-default-http-blocker</id>
+  <mirrorOf>external:http:*</mirrorOf>
+  <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+  <url>http://0.0.0.0/</url>
+</mirror>
