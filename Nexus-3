@@ -21,3 +21,23 @@ In the Maven settings (located in ${maven.home}/conf/settings.xml or ${user.home
   <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
   <url>http://0.0.0.0/</url>
 </mirror>
+
+
+
+Maven Proxy Repository:
+======================
+The Central Repository is the largest repository of components aimed at Java/JVM-based development and 
+beyond and is used the Maven repository format for release components of numerous open source projects. 
+It is configured as a proxy repository by default in Apache Maven and widely used in other tools.
+
+
+
+How to use Maven with proxy server?
+Quick Start Guide - Proxying Maven and NPM
+1.Install Nexus Repository 3.
+2.Run the server locally for testing. Production deployments should follow the Planning your Implementation documentation.
+3.Proxy a basic Maven and npm build.
+
+
+Go to Nexus server by enter the PublicIP address:8081
+
