@@ -41,3 +41,9 @@ Quick Start Guide - Proxying Maven and NPM
 
 Go to Nexus server by enter the PublicIP address:8081
 
+
+
+Creating Maven_Proxy_Repository
+Creating Blob Store
+
+
