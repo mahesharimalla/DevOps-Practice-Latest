@@ -43,7 +43,23 @@ Go to Nexus server by enter the PublicIP address:8081
 
 
 
-Creating Maven_Proxy_Repository
-Creating Blob Store
+* Creating Maven_Proxy_Repository
+***Creating Blob Store
+A binary large object (blob) storage, or blobstore, is the folder or network location for
+where Nexus Repository will store everthing uploaded to or proxied from a repository, including basic metadata for the object.
+
+
+* Cleanup policies & Performing the tasks.
+* Creating the Users & Credentails in Security.
+* Creating Roles in Nexus
+* LDAP integration with SonarQube server, Nexus Repository or anyother servers..
+* About Support option
+* API
+
+HTTPS Methods:
+GET
+PUT
+POST
+DELETE
 
 
