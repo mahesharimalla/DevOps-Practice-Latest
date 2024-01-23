@@ -1,0 +1,6 @@
+1. Name of your Branching Strategy.
+2. What is Long lived branches & Short Lived branches
+3. For each branch will have Source & Destination 
+4. How will do Merge, how to promote Production(PROD)
+5. How you will resolve the confilcts
+
