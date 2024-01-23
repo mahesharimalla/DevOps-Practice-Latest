@@ -1,0 +1,285 @@
+* Install and configure Git on Local Machine.
+  Demonstrate how to install and configure Git on Local Machine. Choose all the default settings and location.
+  Website: URL (https://git-scm.com/downloads)
+
+* Creating and configuring Amazon Linux EC2 instance.
+  1.Demonstrate how to create and configure Amazon Linux EC2 instance in US region (Default VPC, Default Storage, All traffic allowed from anywhere). 
+  2.Check if you are able to login to the EC2 instance using Putty tool using appropriate username and key
+
+* Installing and configuring Maven on Amazon Linux EC2 instance.
+  1.Demonstrate how to Install and configure Maven on Amazon Linux EC2 instance in US region (Default VPC, Default Storage, All traffic allowed from anywhere). 
+
+* Installing and configuring Docker on Amazon Linux EC2 instance.
+   1.Demonstrate how to Install and configure Docker on Amazon Linux EC2 instance in US region (Default VPC, Default Storage, All traffic allowed from anywhere). 
+   2.Check the docker components by running docker info command
+
+*  Installing and Configuring Jenkins on EC2
+    1. Create CentOS 7 EC2 instance of size t2.micro in the Default VPC ( Allow all traffic in Security Groups) in any region.
+    2. Update the packages in CentOs 7 and install Java, EPEL and then install and start Jenkins service
+    3.Configure Jenkins in browser and install the suggested plugins. Create first user and access Jenkins Dashboard
+
+*  Installing and Configuring Jenkins using containers on CentOS 7 EC2
+   1. Install Docker and start docker service.
+   2. Pull Jenkins Image and create Jenkins container
+   3.Configure Jenkins in browser and install the suggested plugins. Create first user and access Jenkins Dashboard
+
+*  Set up Jenkins Master-Slave Setup on containers inside CentOS 7 EC2 Host 
+     1. Configure to add a new node in Jenkins Master and copy the agent URL to be run on the Jenkins Slave using containers
+     2. On the Jenkins Slave container run the agent and check if the Master and Slave containers are connected.
+     3.Create the below sample Pipeline job on Jenkins Master container and check if the job is getting created on Jenkins Slave container
+     pipeline {
+   agent {label 'TrainingDomain'}
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh 'touch hello.txt'
+            }
+        }
+    }
+} 
+
+
+*  Setting up parameterized jobs and triggers in Jenkins Master
+  1.	Create a new free style project in which you choose the option â€œThe project is Parameterizedâ€ 
+  2.	Choose â€œChoice Parametersâ€ and update the options of OS -Linux, windows, MacOs under choices
+  3.	Build a job using these parameters
+  4.	Create a new job called as Parameterized trigger which will be triggered once Parameterized build is completed
+
+
+*  In this Assignment, You need to write a java class which calculates the Square root of an integer and test the code using Junit using Eclipse IDE
+   1. Create a New Java Project and name it as Junit Test 
+   2. Create Java Package names as JunitTest 
+   3. Create a New Java Class and name it as JunitTesting .
+   4.  Write a Java Class Method which gives the Square value of an integer
+   5. Click on JunitTest package and create a new Junit Test case and name it as squaretest 
+   6.Check if code is working fine without any errors my modifying the output values and check the results
+
+*   In this Assignment, you should create a simple URL/API Performance test from the BlazeMeter UI and create a report.
+Instructions:
+	 Sign in using your credentials in  https://www.blazemeter.com and Click on Tests -> Peformance Testing
+  	Click the Add URL/API Endpoint + on right to create another URL/API Endpoint, and enter the data
+   Enter name: Vacation
+   Enter request URL: http://www.blazedemo.com/vacation.php
+	Under Load Configuration choose the below values. Under Load Distribution choose default locations and % of traffic . Click on Start test button on the left side. You would be prompted to confirm the test , choose Launch Servers Button.
+	Observe the results
+
+*  In this assignment, You should create Apache container using Dockerfile 
+   1. Create a new directory. 
+   2. Inside the new directory create a new Dockerfile with the below contents
+  FROM ubuntu:18.04
+  MAINTAINER Chaitanya
+  RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+  ENV APACHE_RUN_USER www-data
+  ENV APACHE_RUN_GROUP www-data
+  ENV APACHE_LOG_DIR /var/log/apache2
+
+  EXPOSE 80
+
+  CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+  3.Build the image ad create a container from this custom image which will allow the apache application to be reachable from internet
+
+
+
+*   In this Assignment, you should configure Docker Compose to easily run WordPress in an isolated environment built with 	Docker containers 
+
+Synopsis: 
+1.	Install docker compose on docker host and confirm the docker-compose version
+2.	Create a new folder and write docker-compose.yaml with the below contents
+version: â€œ3.9â€
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - "8000:80"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+       WORDPRESS_DB_NAME: wordpress
+volumes:
+    db_data: {}
+
+3.Build the application using docker-compose application
+4.Access the application under port 8000
+5.Observe the mapping of volumes between host and mysql containers
+6.Make the application down and remove the volumes using docker compose commands
+
+
+
+*  Working with Namespaces and  Resource Quotas 
+1.	Create namespaces using imperative and declarative method 
+2.	Create a new namespace named quota and setup cpu and memory quotas in the namespace Install and configure kubectl 
+3.	Check by creating multiple pods and observe the resource quotas forbidden message.
+All the tasks have to be executed on Kubernetes Master Node
+
+
+*   Working with Pods
+1. Create pod (nginx image)using imperative and declarative method u
+2. Check if the pod is created and describe the pod using kubectl commands
+3. Login to the pod using kubectl commands
+3. Delete the pod using kubectl commands
+All the tasks have to be executed on Kubernetes Master Node
+
+
+*  In this Assignment, you will be working with Pods on full node cluster 
+1. Create pod (nginx image with 2 containers ( 1st container - nginx image , 2nd container -debian image) , common volume ( emptydir) mounted on both the volumes using declarative method 
+2. Check if the pod has got created with 2 containers
+3. Check if the containers are able to access the shared volume and data mapping is working .
+4. Delete the pod and observe if the data is still available under empty dir folder in worker node 
+
+A standard use case for a Kubernetes multi-container Pod with a shared Volume is when one container writes logs or other files to the shared directory, 
+and the other container reads from the shared directory. 
+
+In this example, we define a volume named html. Its type is emptyDir, which means that the volume is first created when a Pod is assigned to a node, 
+and exists as long as that Pod is running on that node. As the name says, it is initially empty. The 1st container runs nginx server and has the shared
+volume mounted to the directory /usr/share/nginx/html. The 2nd container uses the Debian image and has the shared volume mounted to the directory /html. 
+Every second, the 2nd container adds the current date and time into the index.html file, which is located in the shared volume. When the user makes an HTTP 
+request to the Pod, the Nginx server reads this file and transfers it back to the user in response to the request.
+
+All the commands has to be run on Kubernetes Master Node
+
+
+
+
+*** Working with Deployments on full node cluster 
+1. Create  3 copies of nginx Pods image with 1container  (nginx image) using declarative method 
+2. Check if the deployment , replicaset and pods have been created using kubectl commands
+3. Delete a pod and observe and how new pod gets created automatically
+4. Update the image version of the deployment and record the update 
+5.Run commands kubectl rollout status / history, kubectl undo etc..
+6.Delete the deployment and observe what happened
+
+All the tasks have to be run on Kubernetes Master Node.
+
+
+***  In this lab you will be working with HTTP health checks for Pod
+In this lab , you will be creating  a Pod which will have a single container. The periodSeconds field specifies that the kubelet should perform a liveness probe every 5 seconds. The initialDelaySeconds field tells the kubelet that it should wait 15 seconds before performing the first probe. To perform a probe, the kubelet sends an HTTP GET request to the server that is running in the container and listening on port 8080. If the handler for the server's / path returns a success code, the kubelet considers the container to be alive and healthy. If the handler returns a failure code, the kubelet kills the container and restarts it.
+
+Any code greater than or equal to 200 and less than 400 indicates success.
+
+1.Creating a nginx pod with liveness probe with given configuration as below.
+
+vi liveness-http-pod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-liveness
+  labels:
+     app: nginx
+spec:
+  containers:
+  - name: nginx-demo
+    image: nginx:1.15-alpine
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      httpGet:
+        path: / 
+        port: 80
+      initialDelaySeconds: 15
+      periodSeconds: 5
+      timeoutSeconds: 1
+
+kubectl apply -f liveness-http-pod.yaml
+
+2.Check if the Pods have been created and not restarting 
+NAME                                                          READY     STATUS    RESTARTS   AGE       LABELS
+nginx-deployment-75675f5897-7ci7o   1/1       Running          0             18s       app=nginx
+
+3.Let us now demonstrate failing liveness probe in which we will update path of container as /example.txt which is not present in the container
+
+vi liveness-http-fail-pod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-liveness-fail
+  labels:
+     app: nginx
+spec:
+  containers:
+  - name: nginx-demo
+    image: nginx:1.9.1
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      httpGet:
+        path: /example.txt
+        port: 80
+      initialDelaySeconds: 15
+      timeoutSeconds: 1
+
+kubectl apply -f liveness-http-fail-pod.yaml
+
+4.Check if the Pods have been created and not restarting 
+NAME                       READY     STATUS    RESTARTS   AGE       LABELS
+nginx-liveness-fail  1/1          Running          1             18s       app=nginx
+
+Regularly check output of kubectl get pods ..It would be failing and Pod would get restarted automatically . After around 5 Restarts , Pod would get crashed.
+
+
+
+***  Create a Stack using an AWS CloudFormation Template 
+Description:
+In this lab you will use a pre- configured sample template that creates an Amazon EC2 instance and installs WordPress with a local MySQL database for storage on it. 
+Synopsis:
+Create CloudFormation Stack using template that declares the resources for a WordPress blog, creates a WordPress blog as a stack, monitor the stack creation process, 
+examine the resources on the stack, and then delete the stack.
+
+
+***  Installing and Configuring Ansible on Centos 7
+Installing and configuring Ansible on CentOs 7
+Synopys:
+1.Create 2 Centos 7 EC2 instances with all traffic allowed (Centos 7 is available in AWS Market Place). Name the instances as Ansible Controller Machine and Ansible Host.
+2.Provide tags as Ansible Controller Machine and Ansible Hosts
+3.Install epel packages and Ansible along with the dependencies on the master machine
+4.Check the Ansible version.
+
+
+***  Working with Ansible Playbooks
+In this lab you will be working with Playbooks to install and start Apache (httpd) on Ansible Host 
+Synopys:
+1.Install Apache on the controller machine, start the service and check the location of httpd.conf (Configuration File)
+2.Install vim editor on the controller machine
+3.Write a playbook which will install and update httpd on the Ansible Host in the same location as Controller Machine
+4.Logon to the Ansible Host and check if Apache has been installed and configured. Also check if the service is running
+
+Ref: https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
