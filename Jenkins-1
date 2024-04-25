@@ -1,0 +1,20 @@
+Jenkins:
+
+Jenkins is an Open-source, Java Based, CI Tool.
+Intially in 2004 Jenkins introdued as Hudson, later in 2012 Jenkins Community named as Jenkins.
+
+
+CI:
+===
+Continuous Integration is the process of automating the build & testing the code everytime when a developer push the code to version control system.
+
+CI Benefits
+===========
+
+Continuous Delivery is mainly for External Projects.
+Continuous Deployment is mainly for Internal Projects / In House Projects,
+
+Internal versus External Project Managers. Project Managers can be categorized as “internal” project managers, who deliver projects for stakeholders within their own organizations, or “external” project managers, 
+who deliver projects to customers outside their organization.
+Ex: HRMS
+
