@@ -23,7 +23,7 @@ After completion of buid it will store under jenkins home directory:
 /var/lib/jenkins/workspace/facabook-dev/target/maven-web-application.war/ ----> Default jenkins home directory
 
 sonar:sonar
-we need to configure sonarqube server details in pom.xml file
+**** we need to configure sonarqube server details in pom.xml file
 <sonar.host.url>http://13.222.16.89:9000/</sonar.host.url>
 <sonar.login>lonjnd98836875692909773278thbjdsbcheyr29ur2763r</sonar.login>    //instead of token we can use the username & password better to use the token
 
@@ -34,7 +34,62 @@ update & mention the goal in jenkins job under Configuration--->
 build --->Invoke-top-level-maven-targets-->(Goals)---> clean package sonar:sonar --->save
 
 
+Nexus Server:
+**** Nexus repository details we need to add in pom.xml file where the pom.xml file available in the branch(Developement).
+**** Nexus credentails we need to update in settings.xmlfile.
 
+**** Nexus repository details we need to add in pom.xml file.
+Both examples are mentioned below:
+<repository>
+<id>nexus</id>
+<name>mithun technologies releses nexus repository</name>
+<url>http://13.222.16.223/mithuntechnologies/repository/facebook-releases/</url>
+</repository>
+
+<snapshotRepository>
+<id>nexus</id>
+<name>mithun technologies  nexus repository</name>
+<url>http://13.222.16.223/mithuntechnologies/repository/facebook-snapshot/</url>
+</snapshotRepository>
+
+
+**** Nexus credentails we need to update in settings.xmlfile.
+/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven3.8.5/conf/settings.xml
+
+Nexus credentials in settings.xml  
+<servers>
+  <server>
+<id>nexus</id>
+<username>admin</username>
+<password>password</password>
+</server>
+</servers>
+
+
+
+update & mention the goal in jenkins job under Configuration--->
+build --->Invoke-top-level-maven-targets-->(Goals)---> clean package sonar:sonar deploy ---> apply & save
+
+
+[Deploy to the container] we need to install the plugin in jenkins for deploying the application into tomcat 
+& Tomcat server must be running. 
+Once after finishing the installation of Deploy to the container plugin then only it will available in under POST BUILD ACTIONS.
+---> Jenkins server--> config----> post build actions--> Deploy war/ear to container----> give the war file path like :**/maven-web-application.war
+Context path? Is optional
+
+Add Container--> select latest version of Apache Tomcat--> add credentails
+Tomcat URL?----> http://13.226.160.235:9980/
+
+Error:
+If Forbidden error occurs (403)----> To fix error go to tomcat server under 
+cd /opt/apache-tomcat-9.0.59/conf/tomcat-users.xml
+Vi tomcat-users.xml
+
+<user username="mithun technologies"  password="psswd" roles="manager-gui,admin-gui,manager-script"/>
+
+save & apply 
+
+Go to Jenkins dashbaord & build the job for deploying the application into the tomcat server.
 
 
 
