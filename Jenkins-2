@@ -1,0 +1,43 @@
+Jenkins End-To-End application Automation:
+
+Pre-requisites:
+
+1.Jenkins Server
+2. Nexus Server
+3. Tomcat Server
+
+In Jenkins Server:
+* IMPORTANT *
+Installations Required:
+Git Installation otherwise it won't accept the github project repo link.
+We should give the Github credentials(Username & Password) & specify the branch name in jenkins server.
+
+Maven 
+Invoke top-level maven targets---(Goals): clean package ---save
+Jenkins Dashboard: Global Tool Configuration --->Under Maven: select Maven software version ---> save
+We need to specify the Maven version in job under build section.
+
+Otherwise it will throughs an error.
+
+After completion of buid it will store under jenkins home directory:
+/var/lib/jenkins/workspace/facabook-dev/target/maven-web-application.war/ ----> Default jenkins home directory
+
+sonar:sonar
+we need to configure sonarqube server details in pom.xml file
+<sonar.host.url>http://13.222.16.89:9000/</sonar.host.url>
+<sonar.login>lonjnd98836875692909773278thbjdsbcheyr29ur2763r</sonar.login>    //instead of token we can use the username & password better to use the token
+
+apply & save in pom.xml file
+
+
+update & mention the goal in jenkins job under Configuration--->
+build --->Invoke-top-level-maven-targets-->(Goals)---> clean package sonar:sonar --->save
+
+
+
+
+
+
+
+
+
