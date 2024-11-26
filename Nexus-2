@@ -44,6 +44,14 @@ maven-web-application project/pom.xml:
 
 Pom.xml:
 
+<groupId>com.mt</groupId>
+        <artifactId>maven-web-application</artifactId>
+        <packaging>war</packaging>
+        <version>0.0.1-RELEASE</version>                          //We should configure either release or snapshot version in <groupId> version 
+
+
+
+
 <distributionManagement>               // In which tag we need to place the Nexus repository URL 
 <repository>
 <id>nexus</id>
